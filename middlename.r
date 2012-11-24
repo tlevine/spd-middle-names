@@ -12,4 +12,8 @@ p <- ggplot(roster) + aes(x = Has.middle.name) +geom_bar() +
   scale_y_continuous('Number of Seattle Police Department employees') +
   scale_x_discrete('Middle name?', labels = c('No', 'Yes'))
 
-print(p)
+render <- function(){
+  png('spd_middle_names.png', width = 600, height = 600)  
+  print(p)
+  dev.off()
+}
